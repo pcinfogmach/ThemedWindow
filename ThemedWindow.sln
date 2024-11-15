@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThemedWindow", "ThemedWindow\ThemedWindow.csproj", "{1B487FE1-E64A-4701-BA4C-B1F0AD5BB733}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThemedWindowDemo", "ThemedWindowDemo\ThemedWindowDemo.csproj", "{26B21314-B393-4CB7-84C5-B27C9F5C80D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B487FE1-E64A-4701-BA4C-B1F0AD5BB733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B487FE1-E64A-4701-BA4C-B1F0AD5BB733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B487FE1-E64A-4701-BA4C-B1F0AD5BB733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B487FE1-E64A-4701-BA4C-B1F0AD5BB733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26B21314-B393-4CB7-84C5-B27C9F5C80D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26B21314-B393-4CB7-84C5-B27C9F5C80D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26B21314-B393-4CB7-84C5-B27C9F5C80D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26B21314-B393-4CB7-84C5-B27C9F5C80D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3BCAB7A1-DEA8-4B07-A8DD-D4C1483922F9}
+	EndGlobalSection
+EndGlobal
