@@ -2,6 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:ThemedWindow.Controls">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ThemedScrollBarDictionary.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
     <SolidColorBrush x:Key="TitleBarButtonMouseOverColor" Color="#7F7F7F" Opacity="0.2"/>
 
     <Style x:Key="TitleBarButtonBase" TargetType="Button">
@@ -117,6 +121,10 @@
     </Style>
 
     <Style TargetType="local:TWindow" x:Key="ThemedWindowStyle">
+        <Style.Resources>
+            <Style TargetType="ScrollBar" BasedOn="{StaticResource ThemedScrollBar}"/>
+            <Style TargetType="ScrollViewer" BasedOn="{StaticResource ThemedScrollViewer}"/>
+        </Style.Resources>
         <Setter Property="Foreground" Value="{Binding ThemedForeGround, RelativeSource={RelativeSource Mode=Self}}"/>
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>

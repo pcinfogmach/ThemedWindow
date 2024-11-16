@@ -8,6 +8,8 @@
         mc:Ignorable="d"
         Title="ThemedWindowSample" Height="450" Width="800">
     <Grid>
-        
+        <TextBox x:Name="textBox" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto"
+            Background="{Binding ThemedBackGround, RelativeSource={RelativeSource AncestorType=local:ThemedWindowSample}}"
+                 Foreground="{Binding ThemedForeGround, RelativeSource={RelativeSource AncestorType=local:ThemedWindowSample}}"/>
     </Grid>
 </tw:TWindow>
