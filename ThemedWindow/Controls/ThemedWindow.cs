@@ -8,10 +8,11 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using ThemedWindow.Helpers;
 
-namespace ThemedWindow
+namespace ThemedWindow.Controls
 {
-    public partial class ThemedWindow : Window
+    public partial class TWindow : Window
     {
         private SolidColorBrush _themedBackGround, _themedForeGround;
 
@@ -41,13 +42,15 @@ namespace ThemedWindow
         private void MaximizeRestore() => this.WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
 
 
-        public ThemedWindow()
+        public TWindow()
         {
             bool isDarkTheme = IsDarkThemeEnabled();
             ThemedBackGround = new SolidColorBrush(isDarkTheme ? Color.FromRgb(30, 30, 30) : Colors.White);
             ThemedForeGround = new SolidColorBrush(isDarkTheme ? Color.FromRgb(200, 200, 200) : Color.FromRgb(30, 30, 30));
             this.FlowDirection = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "he" ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
             if (this.Icon == null) this.Icon = ConvertIconToImageSource(System.Drawing.Icon.ExtractAssociatedIcon(Assembly.GetCallingAssembly().Location));
+
+            this.Style = (Style)Application.Current.Resources["ThemedWindowStyle"];
         }
 
         ImageSource ConvertIconToImageSource(System.Drawing.Icon icon)

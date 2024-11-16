@@ -11,16 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using sw = ThemedWindow.ThemedWindow;
+using ThemedWindow.Controls;
 
 namespace ThemedWindowDemo
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ThemedWindowSample.xaml
     /// </summary>
-    public partial class MainWindow : sw
+    public partial class ThemedWindowSample : TWindow
     {
-        public MainWindow()
+
+        public ThemedWindowSample()
         {
             InitializeComponent();
         }

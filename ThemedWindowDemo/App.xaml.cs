@@ -9,9 +9,11 @@ namespace ThemedWindowDemo
     /// </summary>
     public partial class App : Application
     {
+
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            new ThemedWindow.ThemedWindow().Show();
+            var window = new ThemedWindowSample();
+             window.Show(); 
         }
     }
 

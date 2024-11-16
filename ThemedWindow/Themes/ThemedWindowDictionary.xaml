@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:ThemedWindow">
+                    xmlns:local="clr-namespace:ThemedWindow.Controls">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ThemedScrollBarDictionary.xaml"/>
@@ -12,7 +12,7 @@
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Width" Value="40"/>
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{Binding Path=ThemedForeGround, RelativeSource={RelativeSource AncestorType={x:Type local:ThemedWindow}}}"/>
+        <Setter Property="Foreground" Value="{Binding Path=ThemedForeGround, RelativeSource={RelativeSource AncestorType={x:Type local:TWindow}}}"/>
         <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
@@ -120,7 +120,7 @@
         </Style.Resources>
     </Style>
 
-    <Style TargetType="local:ThemedWindow" x:Name="ThemedWindowStyle">
+    <Style TargetType="local:TWindow" x:Key="ThemedWindowStyle">
         <Setter Property="Foreground" Value="{Binding ThemedForeGround, RelativeSource={RelativeSource Mode=Self}}"/>
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
@@ -134,7 +134,7 @@
 
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="local:ThemedWindow">
+                <ControlTemplate TargetType="local:TWindow">
                     <Border Background="{Binding ThemedBackGround, RelativeSource={RelativeSource TemplatedParent}}">
                         <Grid x:Name="RootGrid">
                             <Grid.RowDefinitions>
