@@ -11,9 +11,6 @@ using System.Windows.Media.Imaging;
 
 namespace ThemedWindow
 {
-    /// <summary>
-    /// Interaction logic for ThemedWindow.xaml
-    /// </summary>
     public partial class ThemedWindow : Window
     {
         private SolidColorBrush _themedBackGround, _themedForeGround;
@@ -41,9 +38,9 @@ namespace ThemedWindow
         public ICommand CloseCommand => _closeCommand ??= new RelayCommand(Close);
 
         private void Minimize() => this.WindowState = WindowState.Minimized;
-        private void MaximizeRestore() =>  this.WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
-       
-        
+        private void MaximizeRestore() => this.WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+
+
         public ThemedWindow()
         {
             bool isDarkTheme = IsDarkThemeEnabled();
@@ -51,18 +48,6 @@ namespace ThemedWindow
             ThemedForeGround = new SolidColorBrush(isDarkTheme ? Color.FromRgb(200, 200, 200) : Color.FromRgb(30, 30, 30));
             this.FlowDirection = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "he" ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
             if (this.Icon == null) this.Icon = ConvertIconToImageSource(System.Drawing.Icon.ExtractAssociatedIcon(Assembly.GetCallingAssembly().Location));
-
-            InitializeComponent();
-
-            for (int i = 0; i < 100; i++)
-            {
-                TextBlock textBlock = new TextBlock
-                {
-                    Text = "A Very Very Very Very Very Very Very Very Very Long Item " + i,
-                    Margin = new Thickness(5)
-                };
-                stackPanel.Children.Add(textBlock);
-            }
         }
 
         ImageSource ConvertIconToImageSource(System.Drawing.Icon icon)
@@ -90,6 +75,6 @@ namespace ThemedWindow
             return false; // Default to light theme if the registry value is not found
         }
 
-       
+
     }
 }
