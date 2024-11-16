@@ -20,10 +20,8 @@
     </Window.Resources>
 
     <Grid>
-        <Border  BorderThickness="1" BorderBrush="Red">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" Background="Transparent">
-                <StackPanel x:Name="stackPanel"/>
-            </ScrollViewer>
-        </Border>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" Background="Transparent">
+            <StackPanel x:Name="stackPanel"/>
+        </ScrollViewer>
     </Grid>
 </Window>

@@ -46,7 +46,7 @@ namespace ThemedWindow
         
         public ThemedWindow()
         {
-            bool isDarkTheme = !IsDarkThemeEnabled();
+            bool isDarkTheme = IsDarkThemeEnabled();
             ThemedBackGround = new SolidColorBrush(isDarkTheme ? Color.FromRgb(30, 30, 30) : Colors.White);
             ThemedForeGround = new SolidColorBrush(isDarkTheme ? Color.FromRgb(200, 200, 200) : Color.FromRgb(30, 30, 30));
             this.FlowDirection = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "he" ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
