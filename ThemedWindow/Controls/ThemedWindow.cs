@@ -45,7 +45,7 @@ namespace ThemedWindow.Controls
         public TWindow()
         {
             bool isDarkTheme = IsDarkThemeEnabled();
-            ThemedBackGround = new SolidColorBrush(isDarkTheme ? Color.FromRgb(30, 30, 30) : Colors.White);
+            ThemedBackGround = new SolidColorBrush(isDarkTheme ? Color.FromRgb(34, 34, 34) : Colors.White);
             ThemedForeGround = new SolidColorBrush(isDarkTheme ? Color.FromRgb(200, 200, 200) : Color.FromRgb(30, 30, 30));
             this.FlowDirection = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "he" ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
             if (this.Icon == null) this.Icon = ConvertIconToImageSource(System.Drawing.Icon.ExtractAssociatedIcon(Assembly.GetCallingAssembly().Location));
