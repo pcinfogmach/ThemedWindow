@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThemedWindow"
         mc:Ignorable="d"
-        Title="ThemedWindow" Height="450" Width="800">
+        Height="450" Width="800"
+        Title="ThemedWindow"
+        UseLayoutRounding="True">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -18,8 +20,10 @@
     </Window.Resources>
 
     <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" Background="Transparent">
-            <StackPanel x:Name="stackPanel"/>
-        </ScrollViewer>
+        <Border  BorderThickness="1" BorderBrush="Red">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" Background="Transparent">
+                <StackPanel x:Name="stackPanel"/>
+            </ScrollViewer>
+        </Border>
     </Grid>
 </Window>

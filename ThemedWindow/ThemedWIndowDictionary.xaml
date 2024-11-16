@@ -135,64 +135,57 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:ThemedWindow">
-                    <Border Background="{Binding ThemedBackGround, RelativeSource={RelativeSource TemplatedParent}}">
-                        <Grid x:Name="RootGrid">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="36"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
+                    <ContentControl>
+                        <Border Margin="8" Background="{Binding ThemedBackGround, RelativeSource={RelativeSource TemplatedParent}}">
+                            <Grid x:Name="RootGrid">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="36"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
 
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="auto"/>
-                                </Grid.ColumnDefinitions>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
 
-                                <StackPanel Orientation="Horizontal" Grid.Column="0">
-                                    <Image Source="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" 
+                                    <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                        <Image Source="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" 
                                             Margin="5,0,5,0" VerticalAlignment="Center"
                                            Height="{Binding ActualHeight, ElementName=WindowTitleBox}"/>
-                                    <TextBlock x:Name="WindowTitleBox" Text="{Binding Title, RelativeSource={RelativeSource TemplatedParent}}"
+                                        <TextBlock x:Name="WindowTitleBox" Text="{Binding Title, RelativeSource={RelativeSource TemplatedParent}}"
                                                VerticalAlignment="Center"
                                                Foreground="{Binding Path=ThemedForeGround, RelativeSource={RelativeSource TemplatedParent}}"/>
-                                </StackPanel>
-                                
-                                <StackPanel x:Name="TitleBarButtonsPanel" Orientation="Horizontal" Grid.Column="2">
-                                    <Button x:Name="MinimizeButton"
+                                    </StackPanel>
+
+                                    <StackPanel x:Name="TitleBarButtonsPanel" Orientation="Horizontal" Grid.Column="2">
+                                        <Button x:Name="MinimizeButton"
                                     Command="{Binding MinimizeCommand, RelativeSource={RelativeSource TemplatedParent}}"
                                     Style="{StaticResource TitleBarButtonStyle}"
                                     ToolTip="{Binding MinimizeButtonTooltip, RelativeSource={RelativeSource TemplatedParent}}">
-                                        <Path Data="M 13,15 H 23"/>
-                                    </Button>
+                                            <Path Data="M 13,15 H 23"/>
+                                        </Button>
 
-                                    <Button x:Name="maximizeRestoreButton"
+                                        <Button x:Name="maximizeRestoreButton"
                                     Style="{StaticResource TitleBarMaximizeButtonStyle}"
                                     Command="{Binding MaximizeRestoreCommand, RelativeSource={RelativeSource TemplatedParent}}"
                                     ToolTip="{Binding MaximizeButtonTooltip, RelativeSource={RelativeSource TemplatedParent}}">
-                                        <Path x:Name="maximizeIcon"/>
-                                    </Button>
+                                            <Path x:Name="maximizeIcon"/>
+                                        </Button>
 
-                                    <Button x:Name="CloseButton" Style="{StaticResource TitleBarXButtonStyle}"
+                                        <Button x:Name="CloseButton" Style="{StaticResource TitleBarXButtonStyle}"
                                     Command="{Binding CloseCommand, RelativeSource={RelativeSource TemplatedParent}}"
                                     ToolTip="{Binding XButtonTooltip, RelativeSource={RelativeSource TemplatedParent}}">
-                                        <Path Data="M 13,11 22,20 M 13,20 22,11"/>
-                                    </Button>
-                                </StackPanel>
+                                            <Path Data="M 13,11 22,20 M 13,20 22,11"/>
+                                        </Button>
+                                    </StackPanel>
+                                </Grid>
+
+                                <ContentPresenter x:Name="PART_MainContentPresenter"  Grid.Row="1"/>
                             </Grid>
-
-                            <ContentPresenter x:Name="PART_MainContentPresenter"  Grid.Row="1"/>
-                        </Grid>
-                    </Border>
-
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="WindowState" Value="Maximized">
-                            <Setter TargetName="RootGrid" Property="Margin" Value="7"/>
-                        </Trigger>
-                        <Trigger Property="WindowState" Value="Normal">
-                            <Setter TargetName="RootGrid" Property="Margin" Value="3.5,0,3.5,3.5"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
+                        </Border>
+                    </ContentControl>
 
                 </ControlTemplate>
             </Setter.Value>

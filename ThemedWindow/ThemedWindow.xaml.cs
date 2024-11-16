@@ -41,13 +41,12 @@ namespace ThemedWindow
         public ICommand CloseCommand => _closeCommand ??= new RelayCommand(Close);
 
         private void Minimize() => this.WindowState = WindowState.Minimized;
-        private void MaximizeRestore() => this.WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
-
+        private void MaximizeRestore() =>  this.WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
        
         
         public ThemedWindow()
         {
-            bool isDarkTheme = IsDarkThemeEnabled();
+            bool isDarkTheme = !IsDarkThemeEnabled();
             ThemedBackGround = new SolidColorBrush(isDarkTheme ? Color.FromRgb(30, 30, 30) : Colors.White);
             ThemedForeGround = new SolidColorBrush(isDarkTheme ? Color.FromRgb(200, 200, 200) : Color.FromRgb(30, 30, 30));
             this.FlowDirection = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "he" ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;

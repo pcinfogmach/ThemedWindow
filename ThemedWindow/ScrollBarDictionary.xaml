@@ -15,10 +15,11 @@
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Vertical">
                 <Setter Property="Width" Value="{StaticResource ScrollBarWidth}"/>
+                <Setter Property="Foreground" Value="#FF999999"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type ScrollBar}">
-                            <Border BorderThickness="1">
+                            <Border>
                                 <Border.BorderBrush>
                                     <SolidColorBrush Color="#888888" Opacity="0.6"/>
                                 </Border.BorderBrush>
@@ -76,8 +77,7 @@
                                                 <Thumb.Template>
                                                     <ControlTemplate TargetType="Thumb">
                                                         <Rectangle x:Name="ThumbRectangle" 
-                                                               Fill="{StaticResource ScrollBarButtonBackgroundBrush}" 
-                                                               Margin="1,0,1,0"/>
+                                                               Fill="{StaticResource ScrollBarButtonBackgroundBrush}"/>
                                                         <ControlTemplate.Triggers>
                                                             <Trigger Property="IsMouseOver" Value="True">
                                                                 <Setter TargetName="ThumbRectangle" Property="Fill" Value="{StaticResource ScrollBarButtonHighlightBackgroundBrush}" />
@@ -139,7 +139,7 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type ScrollBar}">
-                            <Border BorderThickness="1">
+                            <Border>
                                 <Border.BorderBrush>
                                     <SolidColorBrush Color="#888888" Opacity="0.6"/>
                                 </Border.BorderBrush>
@@ -197,8 +197,7 @@
                                                 <Thumb.Template>
                                                     <ControlTemplate TargetType="Thumb">
                                                         <Rectangle x:Name="ThumbRectangle" 
-                                                               Fill="{StaticResource ScrollBarButtonBackgroundBrush}" 
-                                                                   Margin="0,1,0,1"/>
+                                                               Fill="{StaticResource ScrollBarButtonBackgroundBrush}"/>
                                                         <ControlTemplate.Triggers>
                                                             <Trigger Property="IsMouseOver" Value="True">
                                                                 <Setter TargetName="ThumbRectangle" Property="Fill" Value="{StaticResource ScrollBarButtonHighlightBackgroundBrush}" />
@@ -236,8 +235,8 @@
                                                       Data="M 10 5 L 0 0 L 0 10 Z"
                                                       Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ScrollBar}}"
                                                       Stretch="Fill"
-                                                      Height="{StaticResource ScrollBarArrowHeight}"
-                                                      Width="{StaticResource ScrollBarArrowWidth}" />
+                                                      Height="{StaticResource ScrollBarArrowWidth}"
+                                                      Width="{StaticResource ScrollBarArrowHeight}" />
                                                 </Grid>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
