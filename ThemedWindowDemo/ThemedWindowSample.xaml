@@ -7,6 +7,52 @@
             xmlns:tw="clr-namespace:ThemedWindow.Controls;assembly=ThemedWindow"
             mc:Ignorable="d"
             Title="ThemedWindowSample" Height="450" Width="800">
+
+    <tw:TWindow.Resources>
+        <!--<Style x:Key="CheckButtonListBoxStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource CostumeListBoxItemStyle}">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <Border  Background="{TemplateBinding Background}">
+                                        <ToggleButton Background="{x:Null}"
+                                BorderThickness="0" 
+                                Content="{TemplateBinding Content}" 
+                                VerticalAlignment="Center"
+                                IsChecked="{Binding IsSelected, RelativeSource={RelativeSource TemplatedParent}}"
+                                Focusable="False"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="#7F7F7F" Opacity="0.2"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="#7F7F7F" Opacity="0.2"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+    </tw:TWindow.Resources>
+    
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -14,40 +60,23 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0">
-            <StackPanel.Resources>
-                <Style TargetType="RadioButton">
-                    <Setter Property="Background" Value="Transparent"/>
-                    <Setter Property="Foreground" Value="{Binding ThemedForeGround, RelativeSource={RelativeSource AncestorType=tw:TWindow}}"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="RadioButton">
-                                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0">
-                                    <Border Name="backgroundBorder" Background="{TemplateBinding Background}"/>
-                                    <ContentControl Content="{TemplateBinding Content}" 
-                                            Margin="5" Foreground="{TemplateBinding Foreground}" />
-                                </Grid>
-
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsChecked" Value="True">
-                                        <Setter TargetName="backgroundBorder" Property="Background" Value="#7F7F7F"/>
-                                        <Setter TargetName="backgroundBorder" Property="Opacity" Value="0.2"/>
-                                    </Trigger>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="backgroundBorder" Property="Background" Value="#7F7F7F"/>
-                                        <Setter TargetName="backgroundBorder" Property="Opacity" Value="0.2"/>
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </StackPanel.Resources>
-            <RadioButton Content="aaa"/>
-            <RadioButton Content="aaa"/>
-            <RadioButton Content="aaa"/>
-        </StackPanel>
-
+        <ListBox Grid.Column="0">
+            <ListBoxItem x:Name="radioButtonA">
+                <Path  Data="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <Path  Data="M13.5,8H12V13L16.28,15.54L17,14.33L13.5,12.25V8M13,3A9,9 0 0,0 4,12H1L4.96,16.03L9,12H6A7,7 0 0,1 13,5A7,7 0 0,1 20,12A7,7 0 0,1 13,19C11.07,19 9.32,18.21 8.06,16.94L6.64,18.36C8.27,20 10.5,21 13,21A9,9 0 0,0 22,12A9,9 0 0,0 13,3"/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <Path  Data="M21.41 11.58L12.41 2.58A2 2 0 0 0 11 2H4A2 2 0 0 0 2 4V11A2 2 0 0 0 2.59 12.42L11.59 21.42A2 2 0 0 0 13 22A2 2 0 0 0 14.41 21.41L21.41 14.41A2 2 0 0 0 22 13A2 2 0 0 0 21.41 11.58M13 20L4 11V4H11L20 13M6.5 5A1.5 1.5 0 1 1 5 6.5A1.5 1.5 0 0 1 6.5 5Z"/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <Path  Data="M18.68,12.32C16.92,10.56 14.07,10.57 12.32,12.33C10.56,14.09 10.56,16.94 12.32,18.69C13.81,20.17 16.11,20.43 17.89,19.32L21,22.39L22.39,21L19.3,17.89C20.43,16.12 20.17,13.8 18.68,12.32M17.27,17.27C16.29,18.25 14.71,18.24 13.73,17.27C12.76,16.29 12.76,14.71 13.74,13.73C14.71,12.76 16.29,12.76 17.27,13.73C18.24,14.71 18.24,16.29 17.27,17.27M10.9,20.1C10.25,19.44 9.74,18.65 9.42,17.78C6.27,17.25 4,15.76 4,14V17C4,19.21 7.58,21 12,21V21C11.6,20.74 11.23,20.44 10.9,20.1M4,9V12C4,13.68 6.07,15.12 9,15.7C9,15.63 9,15.57 9,15.5C9,14.57 9.2,13.65 9.58,12.81C6.34,12.3 4,10.79 4,9M12,3C7.58,3 4,4.79 4,7C4,9 7,10.68 10.85,11H10.9C12.1,9.74 13.76,9 15.5,9C16.41,9 17.31,9.19 18.14,9.56C19.17,9.09 19.87,8.12 20,7C20,4.79 16.42,3 12,3Z"/>
+            </ListBoxItem>
+            <ListBoxItem>
+                <Path  Data="M11,18H13V16H11V18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,6A4,4 0 0,0 8,10H10A2,2 0 0,1 12,8A2,2 0 0,1 14,10C14,12 11,11.75 11,15H13C13,12.75 16,12.5 16,10A4,4 0 0,0 12,6Z"/>
+            </ListBoxItem>
+        </ListBox>
 
         <TabControl Name="tabControl" SelectedIndex="-1"
                     TabStripPlacement="Left" Grid.Column="1">
@@ -63,7 +92,7 @@
                 </Style>
             </TabControl.Resources>
 
-            <TabItem Header="aaaa">
+            <TabItem Header="aaaa" IsSelected="{Binding IsSelected ,ElementName=radioButtonA}">
                 aaaaa
             </TabItem>
             <TabItem Header="bbb">

@@ -8,7 +8,8 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/ThemedWindow;component/Themes/ThemedWindowDictionary.xaml"/>
-                <ResourceDictionary Source="ExpnaderDictionary.xaml"/>
+                <ResourceDictionary Source="SidePanelListBox.xaml"/>
+                <ResourceDictionary Source="ToggleButtonStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
         

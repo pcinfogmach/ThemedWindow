@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:ThemedWindow.Controls">
+                    xmlns:local="clr-namespace:ThemedWindow.Controls"
+                    xmlns:tw="clr-namespace:ThemedWindow">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ThemedScrollBarDictionary.xaml" />
@@ -125,7 +126,9 @@
             <Style TargetType="ScrollBar" BasedOn="{StaticResource ThemedScrollBar}"/>
             <Style TargetType="ScrollViewer" BasedOn="{StaticResource ThemedScrollViewer}"/>
         </Style.Resources>
+       
         <Setter Property="Foreground" Value="{Binding ThemedForeGround, RelativeSource={RelativeSource Mode=Self}}"/>
+
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
                 <WindowChrome
