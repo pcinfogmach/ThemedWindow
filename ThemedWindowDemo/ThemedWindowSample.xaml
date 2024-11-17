@@ -1,15 +1,79 @@
 ﻿<tw:TWindow x:Class="ThemedWindowDemo.ThemedWindowSample"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ThemedWindowDemo"
-        xmlns:tw="clr-namespace:ThemedWindow.Controls;assembly=ThemedWindow"
-        mc:Ignorable="d"
-        Title="ThemedWindowSample" Height="450" Width="800">
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:ThemedWindowDemo"
+            xmlns:tw="clr-namespace:ThemedWindow.Controls;assembly=ThemedWindow"
+            mc:Ignorable="d"
+            Title="ThemedWindowSample" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="textBox" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto"
-            Background="{Binding ThemedBackGround, RelativeSource={RelativeSource AncestorType=local:ThemedWindowSample}}"
-                 Foreground="{Binding ThemedForeGround, RelativeSource={RelativeSource AncestorType=local:ThemedWindowSample}}"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <StackPanel.Resources>
+                <Style TargetType="RadioButton">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="{Binding ThemedForeGround, RelativeSource={RelativeSource AncestorType=tw:TWindow}}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="RadioButton">
+                                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0">
+                                    <Border Name="backgroundBorder" Background="{TemplateBinding Background}"/>
+                                    <ContentControl Content="{TemplateBinding Content}" 
+                                            Margin="5" Foreground="{TemplateBinding Foreground}" />
+                                </Grid>
+
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsChecked" Value="True">
+                                        <Setter TargetName="backgroundBorder" Property="Background" Value="#7F7F7F"/>
+                                        <Setter TargetName="backgroundBorder" Property="Opacity" Value="0.2"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="backgroundBorder" Property="Background" Value="#7F7F7F"/>
+                                        <Setter TargetName="backgroundBorder" Property="Opacity" Value="0.2"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </StackPanel.Resources>
+            <RadioButton Content="aaa"/>
+            <RadioButton Content="aaa"/>
+            <RadioButton Content="aaa"/>
+        </StackPanel>
+
+
+        <TabControl Name="tabControl" SelectedIndex="-1"
+                    TabStripPlacement="Left" Grid.Column="1">
+            <TabControl.Resources>
+                <Style TargetType="TabControl">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TabControl}">
+                                <ContentPresenter ContentSource="SelectedContent"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
+
+            <TabItem Header="aaaa">
+                aaaaa
+            </TabItem>
+            <TabItem Header="bbb">
+                bbb
+            </TabItem>
+        </TabControl>
+
+        <!-- Main content area -->
+        <Border Grid.Column="2" BorderBrush="Gray" BorderThickness="1">
+            <TextBlock Text="Main Content Area" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+        </Border>
     </Grid>
 </tw:TWindow>
