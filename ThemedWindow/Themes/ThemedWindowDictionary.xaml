@@ -197,6 +197,7 @@
                             <ContentPresenter x:Name="PART_MainContentPresenter"  Grid.Row="1"/>
                         </Grid>
                     </Border>
+                    
                     <ControlTemplate.Triggers>
                         <Trigger Property="WindowState" Value="Maximized">
                             <Setter TargetName="RootGrid" Property="Margin" Value="7.5"/>
