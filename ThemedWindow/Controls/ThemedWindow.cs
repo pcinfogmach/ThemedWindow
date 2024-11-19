@@ -48,13 +48,16 @@ namespace ThemedWindow.Controls
             ThemedBackGround = new SolidColorBrush(isDarkTheme ? Color.FromRgb(34, 34, 34) : Colors.White);
             ThemedForeGround = new SolidColorBrush(isDarkTheme ? Color.FromRgb(200, 200, 200) : Color.FromRgb(30, 30, 30));
             this.FlowDirection = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "he" ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
-            if (this.Icon == null) this.Icon = ConvertIconToImageSource(System.Drawing.Icon.ExtractAssociatedIcon(Assembly.GetCallingAssembly().Location));
+            
+            try { if (this.Icon == null) this.Icon = ConvertIconToImageSource(); }catch (Exception ex) { }            
 
             this.Style = (Style)Application.Current.Resources["ThemedWindowStyle"];
         }
 
-        ImageSource ConvertIconToImageSource(System.Drawing.Icon icon)
+        ImageSource ConvertIconToImageSource()
         {
+            string exePath = Assembly.GetExecutingAssembly().Location;
+            System.Drawing.Icon icon = System.Drawing.Icon.ExtractAssociatedIcon(exePath);
             ImageSource imageSource = Imaging.CreateBitmapSourceFromHIcon(
                 icon.Handle,
                 Int32Rect.Empty,
