@@ -45,11 +45,11 @@ namespace ThemedWindow.Controls
         public TWindow()
         {
             bool isDarkTheme = IsDarkThemeEnabled();
-            ThemedBackGround = new SolidColorBrush(isDarkTheme ? Color.FromRgb(34, 34, 34) : Colors.White);
-            ThemedForeGround = new SolidColorBrush(isDarkTheme ? Color.FromRgb(200, 200, 200) : Color.FromRgb(30, 30, 30));
+            ThemedBackGround = isDarkTheme ? new SolidColorBrush(Color.FromRgb(34, 34, 34)) : new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFF9F9FA"));
+            ThemedForeGround = new SolidColorBrush(isDarkTheme ? Color.FromRgb(200, 200, 200) : Colors.DarkSlateGray);
             this.FlowDirection = CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "he" ? FlowDirection.RightToLeft : FlowDirection.LeftToRight;
             
-            try { if (this.Icon == null) this.Icon = ConvertIconToImageSource(); }catch (Exception ex) { }            
+            try { if (this.Icon == null) this.Icon = ConvertIconToImageSource(); }catch (Exception ex) { }
 
             this.Style = (Style)Application.Current.Resources["ThemedWindowStyle"];
         }
